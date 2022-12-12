@@ -48,24 +48,27 @@ const Input = () => {
       console.log(inputValue)
       console.log(data)
     }
+
+    if(isLoading) return <div><h1 className="text-3xl text-white animate-pulse">Loading...</h1></div>
+
   
     return (
-      <div className="mt-32 lg:-mt-12 w-4/5 flex flex-col items-center justify-between gap-8 h-full">
-        <h2 className="text-3xl">Dino-ME</h2>
+      <div className="transition ease-in delay-1000 lg:pt-24 pt-12 w-4/5 flex flex-col items-center justify-between gap-8 min-h-full overflow-hidden">
+        <h2 className="text-4xl font-rubik font-bold">Dino-ME</h2>
         <img className="rounded w-64 h-64 lg:w-96 lg:h-96" src={dinos} alt="dinos in a rave"/>
         <form className="flex flex-col items-center justify-betweem w-full lg:w-2/5" onSubmit={handleSubmit}>
-          <input className="rounded w-4/5 h-12 lg:h-16 text-xl text-black font-medium" value={inputValue} onChange={handleInput} />
-          <button className="mt-4 rounded bg-white text-black font-bold w-2/5 h-12" onClick={() => refetch()}type='submit'>Dino Me!</button>
+          <input type="text" placeholder="I am" className="p-2 rounded w-4/5 h-12 lg:h-16 text-xl text-black font-medium" value={inputValue} onChange={handleInput} />
+          <button className="mt-4 rounded bg-white lg:text-xl text-black font-bold w-2/5 h-12 lg:h-16" onClick={() => refetch()}type='submit'>Dino Me!</button>
         </form>
-        {data ? 
+        {data && 
         (<div className="w-full md:w-3/5">
           <h1 className="text-3xl font-bold">{query}</h1>
-          <p className="text-xl break-normal">{data.choices[0].text}</p>
+          <p className="text-xl lg:text-3xl break-normal">{data.choices[0].text}</p>
         </div>
-        ) 
-        : 
-        (isLoading && <span>loading...</span>)}
-        {query && <Image queryString={query}/>}
+        )}
+        <div className=" min-h-[40%]">
+          {query && <Image queryString={query}/>}
+        </div>
       </div>
     );
 }

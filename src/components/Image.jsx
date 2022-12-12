@@ -4,7 +4,6 @@ import useImageData from "../hooks/useImageData"
 const Image = ({queryString}) => {
     const [images, setImages] = useState();
     //const { imageData } = useImageData(queryString);
-
     const options = {
         method: 'GET',
         headers: {
@@ -28,10 +27,12 @@ const Image = ({queryString}) => {
     }, [queryString]);
     //console.log("image", imageData)
     return (
-    <div className="flex flex-col items-center justify-between lg:flex-row flex-wrap w-full gap-4 lg:gap-16">
+    <div className="flex flex-col items-center justify-around lg:flex-row flex-wrap w-full gap-4 lg:gap-16 border-none">
         {images ? images.value.map((image) => (
-            <img src={image.contentUrl} alt="" className="items-center border rounded object-contain w-full" />
-        )) : console.log(queryString)}
+            <a key={image.name} href={image.hostPageUrl} className="">
+                <img src={image.contentUrl} alt={queryString} className="w-72 h-72 items-center rounded object-contain" />
+            </a>
+        )) :  <div><h1 className="text-3xl text-white">Loading...</h1></div>}
     </div>
     )
 }

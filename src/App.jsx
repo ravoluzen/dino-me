@@ -9,7 +9,7 @@ export default function App() {
 
 
   return (
-    <div className="w-full h-full flex justify-center items-center border-2 border-green-600 bg-[url('./assets/bg.png')] bg-no-repeat bg-cover text-white">
+    <div className="lg:p-16 w-full min-h-screen flex justify-evenly items-center bg-[url('./assets/bg.png')] bg-no-repeat bg-cover text-white overflow-hidden">
       <QueryClientProvider client={queryClient}>  
         <Input className="w-4/5" />
       </QueryClientProvider>
