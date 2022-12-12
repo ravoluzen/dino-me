@@ -27,7 +27,7 @@ const Image = ({queryString}) => {
     return (
     <div className="flex flex-col items-center justify-around lg:flex-row flex-wrap gap-4 w-full border-none">
         {images ? images.value.map((image) => (
-            <a key={image.name} href={image.hostPageUrl} className="">
+            <a target="_blank" key={image.name} href={image.hostPageUrl} className="">
                 <img src={image.contentUrl} alt={queryString} className="mb-8 w-72 h-72 items-center rounded object-fill" />
             </a>
         )) :  <div><h1 className="text-3xl text-white">Loading...</h1></div>}
