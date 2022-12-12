@@ -55,7 +55,7 @@ const Input = () => {
         <h2 className="text-4xl font-rubik font-bold">Dino-ME!</h2>
         <img className="rounded w-64 h-64" src={dinos} alt="dinos in a rave"/>
         <form className="flex flex-col items-center justify-betweem w-full lg:w-2/5" onSubmit={handleSubmit}>
-          <input type="text" placeholder="I am crazy, charming, lovely, cute..." className="p-2 rounded w-4/5 h-12 text-black font-medium" value={inputValue} onChange={handleInput} />
+          <input type="text" placeholder="some of your qualities, like wild, lovely, lazy..." className="p-2 rounded w-4/5 h-12 text-black font-medium" value={inputValue} onChange={handleInput} />
           <button className="mt-4 rounded bg-white text-black font-bold w-2/5 h-12" onClick={() => refetch()}type='submit'>Dino Me!</button>
         </form>
         {data && 
