@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 export default function useData(submitText){
 
     let prompt = `Name a dinosaur that suits someone who's ${submitText}. Then describe it in one sentence after a hyphen.`;
-    let queryString = '';
+
     const requestOptions = {
       method: 'POST',
       headers: {
@@ -19,6 +19,7 @@ export default function useData(submitText){
         'presence_penalty': 0,
       })
     };
+
     const fetchData = async () => {
       const data = await fetch('https://api.openai.com/v1/engines/text-davinci-003/completions', requestOptions)
         .then(response => response.json());

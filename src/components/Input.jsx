@@ -60,7 +60,7 @@ const Input = () => {
         </form>
         {data && 
         (<div className="w-full md:w-3/5">
-          <h1 className="text-3xl font-bold text-center mb-8">{query}</h1>
+          <h1 className="text-3xl font-bold text-center mb-8">You're a {query}!</h1>
           <p className="text-xl lg:text-2xl break-normal">{data.choices[0].text}</p>
         </div>
         )}
